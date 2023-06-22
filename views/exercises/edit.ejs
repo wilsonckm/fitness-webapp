@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<h3> Edit Exercises</h3>
+<form action="/exercises/<%=exercise._id %>?_method=PUT" method="POST">
+    <label>Name
+        <input type="text" name="name" value="<%=exercise.name%>">
+    </label><br>
+    <label>Muscle Group
+        <select name="type">
+            <option value="Abdominals">Abdominals</option>
+            <option value="Abductors">Abductors</option>
+            <option value="Adductors">Adductors</option>
+            <option value="Biceps">Biceps</option>
+            <option value="Calves">Calves</option>
+            <option value="Chest">Chest</option>
+            <option value="Forearms">Forearms</option>
+            <option value="Glutes">Glutes</option>
+            <option value="Hamstrings">Hamstrings</option>
+            <option value="Lats">Lats</option>
+            <option value="Lower Back">Lower Back</option>
+            <option value="Middle Back">Middle Back</option>
+            <option value="Neck">Neck</option>
+            <option value="Quads">Quads</option>
+            <option value="Traps">Traps</option>
+            <option value="Triceps">Triceps</option>
+        </select>
+    </label><br>
+    <label>Complete
+        <input type="checkbox" name="complete" <%-exercise.type ? 'checked' : ''%>>
+    </label><br>
+    <label>Sets<br>
+        <input type="number" name="sets" value="<%=exercise.sets%>">
+    <label>Reps<br>
+        <input type="number" name="reps" value="<%=exercise.reps%>">
+    </label><br>
+    <label>Weight (lbs)<br>
+        <input type="number" name="lbs" value="<%=exercise.lbs%>">
+    </label><br>
+    <button type="submit">Update Exercise</button>
+</form>
+<%- include('../partials/footer') %>

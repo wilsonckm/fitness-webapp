@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<h3> <%= exercise.name  %></h3>
+<table>
+    <thead>
+        <tr>
+          <th>Muscle Group</th>
+          <th>Completed</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight</th>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <td><%=exercise.type%></td>
+            <td><%=exercise.complete ? 'Yes' : 'Nope' %></td>
+            <td><%=exercise.sets%></td>
+            <td><%=exercise.reps%></td>
+            <td><%=exercise.lbs%></td>
+        </tr>
+        
+    </thead>
+</table>
+<a href = "/exercises/<%=exercise._id %>/edit">Edit Exercise</a>
+
+
+<%- include('../partials/footer') %>

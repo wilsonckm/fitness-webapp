@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+<table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Muscle Group</th>
+        <th>Completed</th>
+        <th>Reps</th>
+        <th>Sets</th>
+        <th>Weight (lbs)</th>
+      </tr>
+    </thead>
+    <tbody>
+<% exercises.forEach(function(e) { %>
+    <tr>
+        <td>
+            <form 
+            action="/exercises/<%= e.id %>?_method=Delete" 
+            method="POST"
+            class="delete-form"
+            >
+            <button type="submit">X</button>
+            </form>
+        </td>
+        <td><a href="/exercises/<%=e._id %>"> <%=e.name%></a></td>
+        <td><%=e.type%></td>
+        <td><%=e.complete ? 'Yes' : 'Nope' %></td>
+        <td><%=e.sets%></td>
+        <td><%=e.reps%></td>
+        <td><%=e.lbs%></td>
+    </tr>
+<% }) %>
+    </tbody>
+</table>
+<%- include('../partials/footer') %>
