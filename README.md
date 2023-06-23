@@ -6,3 +6,8 @@
 
 # Commit 3: 
 ### Completed CRUD app with routing, controllers, models and views
+
+
+# Commit 4:
+### Added API integration
+
