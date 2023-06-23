@@ -1,0 +1,42 @@
+<%- include('./partials/header') %>
+<h3>Exercises by muscle group</h3>
+<form action="/api" method="GET">
+  <label> Muscle Group
+    <select name="muscle">
+      <option value="Abdominals">Abdominals</option>
+      <option value="Abductors">Abductors</option>
+      <option value="Adductors">Adductors</option>
+      <option value="Biceps">Biceps</option>
+      <option value="Calves">Calves</option>
+      <option value="Chest">Chest</option>
+      <option value="Forearms">Forearms</option>
+      <option value="Glutes">Glutes</option>
+      <option value="Hamstrings">Hamstrings</option>
+      <option value="Lats">Lats</option>
+      <option value="Lower Back">Lower Back</option>
+      <option value="Middle Back">Middle Back</option>
+      <option value="Neck">Neck</option>
+      <option value="Quads">Quads</option>
+      <option value="Traps">Traps</option>
+      <option value="Triceps">Triceps</option>
+    </select>
+  </label>
+  <button type="submit">Go!</button>
+</form>
+<hr>
+<div>
+  <% if (exercisesAPI.length > 0) { %>
+    <% exercisesAPI.forEach(function(exercise) { %>
+      <h4><%= exercise.name %></h4>
+      <p><strong>Type:</strong> <%= exercise.type %></p>
+      <p><strong>Muscle:</strong> <%= exercise.muscle %></p>
+      <p><strong>Equipment:</strong> <%= exercise.equipment %></p>
+      <p><strong>Difficulty:</strong> <%= exercise.difficulty %></p>
+      <p><strong>Instructions:</strong> <%= exercise.instructions %></p>
+      <hr>
+    <% }) %>
+  <% } else { %>
+    <p>No exercises found.</p>
+  <% } %>
+</div>
+<%- include('./partials/footer') %>

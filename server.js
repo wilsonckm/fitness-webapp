@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var exercisesRouter = require('./routes/exercises');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/exercises', exercisesRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
