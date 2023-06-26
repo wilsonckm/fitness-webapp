@@ -1,32 +1,11 @@
 var express = require('express');
 var router = express.Router();
+const apiCtrl = require('../controllers/apis')
 
-//API
-const token = process.env.Exercise_Key;
-const ROOT_URL= 'https://api.api-ninjas.com/v1/exercises?muscle=';  
+//Get user input + searches API for corresponding value
+router.get('/', apiCtrl.index);
 
-router.get('/', async function (req, res, next) {
-    const muscle = req.query.muscle;
-    const url = `${ROOT_URL}${muscle}`;
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'X-Api-Key': token
-        }
-      });
-  //if response was false/token error
-      if (!response.ok) {
-        console.log('Token error!!!')
-        res.send('Error: Token not found!!!');
-      }
-    
-      const exercisesAPI = await response.json();
-      res.render('api', {muscle, exercisesAPI });
-      console.log(exercisesAPI)
-    } catch (error) {
-      console.error('Request failed:', error);
-      res.status(500).send('Request failed');
-    }
-  });
+//adding exercise from API to mongoDB
+// router.post('/', apiCtrl.create);
 
-  module.exports = router;
+module.exports = router;

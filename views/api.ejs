@@ -3,7 +3,7 @@
 <form action="/api" method="GET">
   <label> Muscle Group
     <select name="muscle">
-      <option value="">-</option>
+      <option value="None">-</option>
       <option value="Abdominals">Abdominals</option>
       <option value="Abductors">Abductors</option>
       <option value="Adductors">Adductors</option>
@@ -22,22 +22,27 @@
       <option value="Triceps">Triceps</option>
     </select>
   </label>
-  <button type="submit">Go!</button>
+  <button type="submit">Search</button>
 </form>
 <hr>
 <div>
   <% if (exercisesAPI.length > 0) { %>
     <% exercisesAPI.forEach(function(exercise) { %>
-      <h4><%= exercise.name %></h4>
-      <p><strong>Type:</strong> <%= exercise.type %></p>
-      <p><strong>Muscle:</strong> <%= exercise.muscle %></p>
-      <p><strong>Equipment:</strong> <%= exercise.equipment %></p>
-      <p><strong>Difficulty:</strong> <%= exercise.difficulty %></p>
-      <p><strong>Instructions:</strong> <%= exercise.instructions %></p>
-      <hr>
-    <% }) %>
-  <% } else { %>
-    <p>No exercises found.</p>
-  <% } %>
-</div>
+      <h4><%= exercise.name %> </h4>
+      <form action="/exercises" method="post">
+        <input type="hidden" name="name" value="<%= exercise.name %>">
+        <input type="hidden" name="muscle" value="<%= exercise.muscle %>">
+        <button type="submit"class="exercise_button"> Add Exercise</button>
+        <p><strong>Type:</strong> <%= exercise.type %></p>
+        <p><strong>Muscle:</strong> <%= exercise.muscle %></p>
+        <p><strong>Equipment:</strong> <%= exercise.equipment %></p>
+        <p><strong>Difficulty:</strong> <%= exercise.difficulty %></p>
+        <p><strong>Instructions:</strong> <%= exercise.instructions %></p>
+        <hr>
+      </form>
+        <% }) %>
+        <% } else { %>
+          <p>No exercises found.</p>
+          <% } %>
+        </div>
 <%- include('./partials/footer') %>
