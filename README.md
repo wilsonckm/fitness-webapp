@@ -10,4 +10,33 @@
 
 # Commit 4:
 ### Added API integration
+Successfully added in API key to MongoDB, fetched proper URL, rendered proper information to corresponding ejs view. 
+
+Critical barriers:
+response.json() is important to parse data and converting into Javascript objects. Otherwise, data would be in plain text.
+
+
+# Commit 5:
+### Added feature to add exercise from API to current workout
+Originally attempted to send data to database directly from API, however, was unsuccessful, therefore attempted secondary approach by sending values to database via EJS.
+Located in API.ejs, button with hidden inputs sending values to post to "/exercises".
+
+
+# Commit 6:
+### Bug fixes for quads/quadriceps
+Bug: Quads would not be recognized due to schema type and enum parameters
+Addressed: Typo in form and schema
+
+# Commit 7:
+### Formatted data upon display 
+
+Capitalized first letter and replaced "_" with spaces when data was displayed from API
+
+Stylized with CSS
+
+Bug: Schema continues to allow negative values for number types despite having min limits
+Addressed: With HTML min limits to preven user from putting negative values
+
+Added middleware to address image path issue. Images were not display and required relative path to be established in order to properly display in server.js
+
 

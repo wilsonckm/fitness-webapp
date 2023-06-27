@@ -1,5 +1,5 @@
 <%- include('./partials/header') %>
-<h3>Exercises by muscle group</h3>
+<h2>Exercises by muscle group</h2>
 <form action="/api" method="GET">
   <label> Muscle Group
     <select name="muscle">
@@ -24,20 +24,33 @@
   </label>
   <button type="submit">Search</button>
 </form>
-<hr>
+
 <div>
+  <hr>
   <% if (exercisesAPI.length > 0) { %>
     <% exercisesAPI.forEach(function(exercise) { %>
-      <h4><%= exercise.name %> </h4>
+      <h4 class="exercise-name"><%= exercise.name %> </h4>
       <form action="/exercises" method="post">
+        <%
+        //Formats data so that: first letter is caplitalized and underscores are removed. 
+        exercise.type = exercise.type.charAt(0).toUpperCase() + exercise.type.substring(1)
+        exercise.muscle = exercise.muscle.charAt(0).toUpperCase() + exercise.muscle.substring(1)
+        // exercise.muscle = exercise.muscle.map(char => char === '_' ? ' ' : char)
+        exercise.muscle = exercise.muscle.replace('_', ' '); // Replace all underscores with spaces 
+        exercise.type = exercise.type.replace('_', ' '); // Replace all underscores with spaces 
+        exercise.equipment = exercise.equipment.charAt(0).toUpperCase() + exercise.equipment.substring(1) 
+        exercise.equipment = exercise.equipment.replace('_', ' '); // Replace all underscores with spaces 
+        exercise.difficulty = exercise.difficulty.charAt(0).toUpperCase() + exercise.difficulty.substring(1)        
+        %>
+        <!-- hidden inputs with attached values to send to database. -->
         <input type="hidden" name="name" value="<%= exercise.name %>">
         <input type="hidden" name="muscle" value="<%= exercise.muscle %>">
-        <button type="submit"class="exercise_button"> Add Exercise</button>
         <p><strong>Type:</strong> <%= exercise.type %></p>
         <p><strong>Muscle:</strong> <%= exercise.muscle %></p>
         <p><strong>Equipment:</strong> <%= exercise.equipment %></p>
         <p><strong>Difficulty:</strong> <%= exercise.difficulty %></p>
         <p><strong>Instructions:</strong> <%= exercise.instructions %></p>
+        <button type="submit"class="exercise_button"> Add Exercise</button>
         <hr>
       </form>
         <% }) %>

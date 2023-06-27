@@ -25,6 +25,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Additional Middleware to allow paths to images. 
+//This one will not work because it is an absolute path
+// app.use(express.static('/public/images'));
+// Therefore this is used instead: it is a relative path to correctly locate static files
+app.use('/public/images/', express.static('./public/images'))
+
 app.use('/', indexRouter);
 app.use('/exercises', exercisesRouter);
 app.use('/api', apiRouter);

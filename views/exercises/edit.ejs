@@ -28,13 +28,13 @@
         <input type="checkbox" name="complete" <%-exercise.type ? 'checked' : ''%>>
     </label><br>
     <label>Sets<br>
-        <input type="number" name="sets" value="<%=exercise.sets%>">
+        <input type="number" name="sets" value="<%=exercise.sets%>" min="0">
     </label><br>
     <lable>Reps<br>
-        <input type="number" name="reps" value="<%=exercise.reps%>">
+        <input type="number" name="reps" value="<%=exercise.reps%>" min="0">
     </label><br>
     <label>Weight (lbs)<br>
-        <input type="number" name="lbs" value="<%=exercise.lbs%>">
+        <input type="number" name="lbs" value="<%=exercise.lbs%>" min="0">
     </label><br>
     <button type="submit">Update Exercise</button>
 </form>
