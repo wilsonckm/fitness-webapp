@@ -35,10 +35,12 @@ nav a:hover {
 } */
 
 .footer {
-  margin-top: 0pxß;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 0px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 0;
+ 
 }
 
 button {
@@ -80,4 +82,5 @@ p {
   position:absolute;
   top: 40%;
   left: 20%;
+  color:rgba(146, 0, 0, 0.901);
 }
