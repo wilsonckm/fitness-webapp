@@ -1,17 +1,17 @@
-#RepOne
+# RepOne
 An exercise web app to help keep track of exercises and filters within an API for new exercises to add.
 Tech Stack: HTML, MongoDB, Express, Node,js, CSS
 
-###Goals:
+### Goals:
 1. Implement CRUD operations
 2. Integrate API to add an exercise library
 
 Live Link: https://radiant-ravine-41773-d48fa3e55171.herokuapp.com/
 
-#Contact: 
+# Contact: 
 Feel free to contact me! This project is still under construction and was created for educational purposes. If you are interested in contributing, please reach out at wilsonckmchan@gmail.com
 
-#Commit History:
+# Commit History:
 ## Commit 1:
 ### Downloaded all necessary modules/folders/files for express set up. Successfully connected Heroku
 
