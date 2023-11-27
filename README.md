@@ -8,6 +8,10 @@ Tech Stack: HTML, MongoDB, Express, Node,js, CSS
 
 Live Link: https://radiant-ravine-41773-d48fa3e55171.herokuapp.com/
 
+To run:
+1. npm install
+2. npm start
+
 # Contact: 
 Feel free to contact me! This project is still under construction and was created for educational purposes. If you are interested in contributing, please reach out at wilsonckmchan@gmail.com
 
